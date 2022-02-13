@@ -1,13 +1,18 @@
-# openshift-policies
+# Kyverno policies for OpenShift
 
-Kyverno policies for OpenShift
+## List
 
-Some initial ideas (thanks Andrew!):
+Some initial ideas (thanks Andy!):
 
-* [ ] Disallow the use of non HTTPS OpenShift Routes
-* [ ] Disallow the use of the SecurityContextConstraint (SCC) anyuid which allows a pod to run with the UID as declared in the image instead of a random UID
-* [ ] Disallow binding to the self-provisioners ClusterRoleBinding
-* [ ] By enabling access, resources associated with this policy have the ability to create Projects
-* [ ] Disallow Jenkins Pipeline Build Strategy for OpenShift Builds. Deprecated in favor of Tekton
-* [ ] Disallow the use of OpenShift RBAC API groups. Functionality has been upstreamed to Kubernetes RBAC
-* [ ] Enforce etcd encryption on OpenShift ApiServer
+* [ ] https://github.com/JimBugwadia/openshift-policies/issues/1
+* [ ] https://github.com/JimBugwadia/openshift-policies/issues/2
+* [ ] https://github.com/JimBugwadia/openshift-policies/issues/3
+* [ ] https://github.com/JimBugwadia/openshift-policies/issues/4
+* [ ] https://github.com/JimBugwadia/openshift-policies/issues/5
+* [ ] https://github.com/JimBugwadia/openshift-policies/issues/6
+
+## Running Tests
+
+1. Install the [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/).
+2. Clone this repo and `cd` to it.
+2. Run `kyverno-kubectl test .`.

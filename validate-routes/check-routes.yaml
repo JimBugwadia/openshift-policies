@@ -1,0 +1,33 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: check-routes
+  annotations:
+    policies.kyverno.io/title: Require 
+    policies.kyverno.io/category: Security
+    policies.kyverno.io/severity: medium
+    kyverno.io/kyverno-version: 1.6.0
+    policies.kyverno.io/minversion: 1.6.0
+    kyverno.io/kubernetes-version: "1.22-1.23"
+    policies.kyverno.io/subject: Route
+    policies.kyverno.io/description: HTTP routes are not allowed.
+spec:
+  validationFailureAction: audit
+  background: true
+  rules:
+    - name: require-tls-routes
+      match:
+        any:
+        - resources:
+            kinds:
+              - route.openshift.io/v1/Route
+      validate:
+        message: >-
+          HTTP traffic is not encrypted and hence insecure. Configure TLS for secure routes.
+        deny:
+          conditions:
+            all:
+            - key: "{{ keys(request.object.spec) | contains(@, 'tls') }}"
+              operator: Equals
+              value: false
+
