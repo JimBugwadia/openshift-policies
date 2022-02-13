@@ -1,15 +1,8 @@
 # Kyverno policies for OpenShift
 
-## List
+## Pending List
 
-Some initial ideas (thanks Andy!):
-
-* [ ] https://github.com/JimBugwadia/openshift-policies/issues/1
-* [ ] https://github.com/JimBugwadia/openshift-policies/issues/2
-* [ ] https://github.com/JimBugwadia/openshift-policies/issues/3
-* [ ] https://github.com/JimBugwadia/openshift-policies/issues/4
-* [ ] https://github.com/JimBugwadia/openshift-policies/issues/5
-* [ ] https://github.com/JimBugwadia/openshift-policies/issues/6
+See [Issues](https://github.com/JimBugwadia/openshift-policies/issues)
 
 ## Running Tests
 
