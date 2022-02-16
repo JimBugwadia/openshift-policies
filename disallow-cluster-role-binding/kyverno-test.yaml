@@ -1,0 +1,11 @@
+name: check-routes
+policies:
+  - disallow-cluster-role-binding.yaml
+resources:
+  - resources.yaml
+results:
+  - policy: disallow-cluster-role-binding
+    rule: check-cluster-role-binding
+    resource: self-provisioners
+    kind: ClusterRoleBinding
+    result: fail

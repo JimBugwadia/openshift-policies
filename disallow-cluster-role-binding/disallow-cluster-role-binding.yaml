@@ -1,0 +1,39 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: disallow-cluster-role-binding
+  annotations:
+    policies.kyverno.io/title: Disallow binding to self-provisions cluster role
+    policies.kyverno.io/category: Best Practices
+    policies.kyverno.io/subject: OpenShift RBAC
+    policies.kyverno.io/description: >-
+      Binding to the self-provisioners cluster role is not allowed
+spec:
+  validationFailureAction: deny
+  background: true
+  rules:
+  - name: check-cluster-role-binding
+    match:
+      resources:
+        kinds:
+        - ClusterRoleBinding
+      preconditions:
+        all:
+        - key: "{{request.object.metadata.name}}"
+          operator: Equals
+          value: self-provisioners
+        - key: "{{request.operation}}"
+          operator: Equals
+          value: UPDATE
+    validate:
+      message: >-
+        Binding to the self-provisioners cluster role is not allowed.
+      deny: 
+        conditions:
+          any:
+          - key: system:authenticated:oauth
+            operator: NotIn
+            value: "{{request.object.subjects[].name}}"
+          - key: "{{ request.object.subjects[].name | length(@) }}"
+            operator: NotEquals
+            value: 1
