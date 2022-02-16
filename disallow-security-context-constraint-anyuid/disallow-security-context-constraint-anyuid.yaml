@@ -1,0 +1,27 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: disallow-security-context-constraint-anyuid
+  annotations:
+    policies.kyverno.io/title: Disallow use of the SecurityContextConstraint (SCC) anyuid
+    policies.kyverno.io/category: Security
+    policies.kyverno.io/subject: OpenShift Security
+    policies.kyverno.io/description: >-
+      Disallow the use of the SecurityContextConstraint (SCC) anyuid which allows a pod to run with the UID as declared in the image instead of a random UID
+spec:
+  validationFailureAction: deny
+  background: true
+  rules:
+  - name: check-security-context-constraint
+    match:
+      resources:
+        kinds:
+        - security.openshift.io/v1/SecurityContextConstraints
+    validate:
+      message: >-
+        Use of the SecurityContextConstraint (SCC) anyuid is not allowed
+      deny:
+        conditions:
+        - key: "{{request.object.runAsUser.type}}"
+          operator: NotEquals
+          value: "RunAsAny"

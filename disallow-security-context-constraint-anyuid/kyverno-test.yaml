@@ -1,0 +1,11 @@
+name: check-routes
+policies:
+  - disallow-security-context-constraint-anyuid.yaml
+resources:
+  - resources.yaml
+results:
+  - policy: disallow-security-context-constraint-anyuid
+    rule: check-security-context-constraint
+    resource: scc-test
+    kind: SecurityContextConstraints
+    result: fail
