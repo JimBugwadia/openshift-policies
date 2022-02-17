@@ -6,6 +6,11 @@ resources:
 results:
   - policy: disallow-security-context-constraint-anyuid
     rule: check-security-context-constraint
-    resource: scc-test
+    resource: scc-valid-test
     kind: SecurityContextConstraints
     result: fail
+  - policy: disallow-security-context-constraint-anyuid
+    rule: check-security-context-constraint
+    resource: scc-invalid-test
+    kind: SecurityContextConstraints
+    result: pass

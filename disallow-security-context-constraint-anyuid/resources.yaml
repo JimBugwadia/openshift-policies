@@ -1,10 +1,28 @@
 kind: SecurityContextConstraints
 apiVersion: security.openshift.io/v1
 metadata:
-  name: scc-test
+  name: scc-valid-test
 allowPrivilegedContainer: true
 runAsUser:
   type: MustRunAsNonRoot 
+seLinuxContext:
+  type: RunAsAny
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+users:
+- my-admin-user
+groups:
+- my-admin-group
+---
+kind: SecurityContextConstraints
+apiVersion: security.openshift.io/v1
+metadata:
+  name: scc-invalid-test
+allowPrivilegedContainer: true
+runAsUser:
+  type: RunAsAny
 seLinuxContext:
   type: RunAsAny
 fsGroup:

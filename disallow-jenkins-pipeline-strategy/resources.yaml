@@ -1,7 +1,7 @@
 kind: "BuildConfig"
 apiVersion: "v1"
 metadata:
-  name: "sample-pipeline"
+  name: "sample-jenkins-pipeline"
 spec:
   source:
     git:
@@ -9,3 +9,13 @@ spec:
   strategy:
     jenkinsPipelineStrategy:
       jenkinsfilePath: some/repo/dir/filename
+---
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "sample-pipeline-no-jenkins"
+spec:
+  source:
+    git:
+      uri: "https://github.com/openshift/ruby-hello-world"
+  strategy: {}

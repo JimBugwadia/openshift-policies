@@ -6,6 +6,11 @@ resources:
 results:
   - policy: disallow-jenkins-pipeline-strategy
     rule: check-build-strategy
-    resource: sample-pipeline
+    resource: sample-jenkins-pipeline
     kind: BuildConfig
     result: fail
+  - policy: disallow-jenkins-pipeline-strategy
+    rule: check-build-strategy
+    resource: sample-pipeline-no-jenkins
+    kind: BuildConfig
+    result: pass

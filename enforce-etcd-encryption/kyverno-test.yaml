@@ -6,6 +6,11 @@ resources:
 results:
   - policy: enforce-etcd-encryption
     rule: check-etcd-encryption
-    resource: cluster
+    resource: cluster-no-encryption
     kind: APIServer
     result: fail
+  - policy: enforce-etcd-encryption
+    rule: check-etcd-encryption
+    resource: cluster-with-encryption
+    kind: APIServer
+    result: pass
