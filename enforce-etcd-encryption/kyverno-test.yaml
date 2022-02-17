@@ -1,0 +1,11 @@
+name: check-policy
+policies:
+  - enforce-etcd-encryption.yaml
+resources:
+  - resources.yaml
+results:
+  - policy: enforce-etcd-encryption
+    rule: check-etcd-encryption
+    resource: cluster
+    kind: APIServer
+    result: fail
