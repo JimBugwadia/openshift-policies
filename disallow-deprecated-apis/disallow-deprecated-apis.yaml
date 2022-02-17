@@ -13,7 +13,7 @@ metadata:
       Note that checking for some of these resources may require modifying the Kyverno
       ConfigMap to remove filters.      
 spec:
-  validationFailureAction: deny
+  validationFailureAction: enforce
   background: true
   rules:
   - name: check-deprecated-apis
