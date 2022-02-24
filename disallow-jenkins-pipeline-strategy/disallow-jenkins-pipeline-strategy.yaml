@@ -17,6 +17,7 @@ spec:
       resources:
         kinds:
         - v1/BuildConfig
+        - build.openshift.io/v1/BuildConfig
     validate:
       message: >-
         Jenkins Pipeline Build Strategy has been deprecated and is no longer allowed
