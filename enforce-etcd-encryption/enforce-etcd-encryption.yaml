@@ -3,11 +3,11 @@ kind: ClusterPolicy
 metadata:
   name: enforce-etcd-encryption
   annotations:
-    policies.kyverno.io/title: Enforce etcd encryption
-    policies.kyverno.io/category: Security
-    policies.kyverno.io/subject: OpenShift Security
+    policies.kyverno.io/title: Enforce etcd encryption in OpenShift
+    policies.kyverno.io/category: OpenShift
+    policies.kyverno.io/subject: APIServer
     policies.kyverno.io/description: >-
-      Ensure encryption is enabled for etcd
+      Encrption at rest is a security best practice. This policy ensures encryption is enabled for etcd in OpenShift clusters.
 spec:
   validationFailureAction: enforce
   background: true

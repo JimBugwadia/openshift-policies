@@ -4,7 +4,7 @@ metadata:
   name: disallow-deprecated-apis
   annotations:
     policies.kyverno.io/title: Disallow deprecated APIs
-    policies.kyverno.io/category: Best Practices
+    policies.kyverno.io/category: OpenShift
     policies.kyverno.io/subject: OpenShift APIs
     policies.kyverno.io/description: >-
       OpenShift APIs are sometimes deprecated and removed after a few releases.
