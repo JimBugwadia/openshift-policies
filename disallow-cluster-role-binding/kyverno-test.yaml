@@ -15,7 +15,7 @@ results:
     kind: ClusterRoleBinding
     result: fail
   - policy: disallow-cluster-role-binding
-    rule: check-cluster-role-binding-no-subject
+    rule: check-cluster-role-binding-with-subject
     resource: self-provisioners-custom-test
     kind: ClusterRoleBinding
     result: fail
