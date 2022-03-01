@@ -19,3 +19,8 @@ results:
     resource: self-provisioners-custom-test
     kind: ClusterRoleBinding
     result: fail
+  - policy: disallow-cluster-role-binding
+    rule: check-cluster-role-binding-with-subject
+    resource: system:openshift:scc:privileged
+    kind: ClusterRoleBinding
+    result: pass
