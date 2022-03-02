@@ -3,6 +3,7 @@ policies:
   - disallow-self-provisioner-binding.yaml
 resources:
   - resources.yaml
+variables: values.yaml
 results:
   - policy: disallow-self-provisioner-binding
     rule: check-self-provisioner-binding-no-subject
